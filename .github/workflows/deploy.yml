@@ -5,8 +5,8 @@ on:
   schedule:
     # Monday 06:00 UTC: redeploy to pick up the latest image.
     - cron: "0 6 * * 1"
-  push:
-    branches: [main]
+  # push:
+  #   branches: [main]
 
 concurrency:
   group: deploy
