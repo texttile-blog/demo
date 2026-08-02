@@ -1,8 +1,8 @@
 # texttile-deploy
 
 Hosts one texttile instance on Fly.io from the published image
-`ghcr.io/klausbreyer/texttile:latest`. The application code lives at
-[klausbreyer/texttile](https://github.com/klausbreyer/texttile).
+`ghcr.io/texttile-blog/texttile:latest`. The application code lives at
+[texttile-blog/texttile](https://github.com/texttile-blog/texttile).
 
 ## How it deploys
 

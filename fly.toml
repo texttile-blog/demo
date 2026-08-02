@@ -12,7 +12,7 @@ app = "texttile"
 primary_region = "fra"
 
 [build]
-  image = "ghcr.io/klausbreyer/texttile:latest"
+  image = "ghcr.io/texttile-blog/texttile:latest"
 
 [env]
   PHX_HOST = "demo.texttile.blog"
