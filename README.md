@@ -1,6 +1,6 @@
-# texttile-deploy
+# deploy-demo
 
-Hosts one texttile instance on Fly.io from the published image
+Hosts the texttile demo instance (demo.texttile.blog) on Fly.io from the published image
 `ghcr.io/texttile-blog/texttile:latest`. The application code lives at
 [texttile-blog/texttile](https://github.com/texttile-blog/texttile).
 
