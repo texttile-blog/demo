@@ -1,5 +1,5 @@
 # Deploys the published texttile image to Fly.io.
-# The app itself lives at github.com/klausbreyer/texttile.
+# The app itself lives at github.com/texttile-blog/texttile.
 #
 # One-time setup for a new instance:
 #   fly apps create <name> --org <org>
