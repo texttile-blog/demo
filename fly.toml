@@ -1,0 +1,38 @@
+# Deploys the published texttile image to Fly.io.
+# The app itself lives at github.com/klausbreyer/texttile.
+#
+# One-time setup for a new instance:
+#   fly apps create <name> --org <org>
+#   fly volumes create data --size 3 --region <region> -a <name>
+#   fly secrets set SECRET_KEY_BASE=<value> -a <name>
+#   fly certs add <domain> -a <name>
+# Then change `app` and PHX_HOST below and run: fly deploy
+
+app = "texttile"
+primary_region = "fra"
+
+[build]
+  image = "ghcr.io/klausbreyer/texttile:latest"
+
+[env]
+  PHX_HOST = "demo.texttile.blog"
+  # One volume holds both; the paths are free on other hosts.
+  DATABASE_PATH = "/data/db/texttile.db"
+  UPLOADS_PATH = "/data/uploads"
+
+[mounts]
+  source = "data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  # SQLite lives on one volume: exactly one machine, no scaling out.
+  min_machines_running = 0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "512mb"
