@@ -5,6 +5,7 @@
 #   fly apps create <name> --org <org>
 #   fly volumes create data --size 3 --region <region> -a <name>
 #   fly secrets set SECRET_KEY_BASE=<value> -a <name>
+#   fly secrets set ADMIN_USERS="<name1>,<name2>" -a <name>
 #   fly certs add <domain> -a <name>
 # Then change `app` and PHX_HOST below and run: fly deploy
 
