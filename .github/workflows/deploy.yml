@@ -3,8 +3,8 @@ name: Deploy
 on:
   workflow_dispatch:
   schedule:
-    # Monday 06:00 UTC: redeploy to pick up the latest image.
-    - cron: "0 6 * * 1"
+    # Daily at 06:00 UTC: redeploy to pick up the latest image.
+    - cron: "0 6 * * *"
   push:
     branches: [main]
 
