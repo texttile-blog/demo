@@ -1,4 +1,4 @@
-# deploy-demo
+# demo
 
 Hosts the texttile demo instance on Fly.io from the published image
 `ghcr.io/texttile-blog/texttile:latest`: app `texttile-demo` on
