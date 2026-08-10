@@ -11,7 +11,7 @@ source; it runs what was published.
 ## How it deploys
 
 - A push to `main` in this repo deploys.
-- A daily cron (06:00 UTC) redeploys, which pulls the latest image.
+- A daily cron (03:17 Europe/Berlin) redeploys, which pulls the latest image.
 - Run the workflow by hand for an immediate update: `gh workflow run deploy`.
 
 The app migrates its database at boot. An update is only: pull image, restart.
