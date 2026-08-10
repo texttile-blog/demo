@@ -1,3 +1,30 @@
+# ============================================================
+#  ONE MACHINE. NEVER TWO.
+# ============================================================
+#
+#  The whole installation is one SQLite file on one volume. SQLite
+#  takes one writer, and a Fly volume mounts on one machine. A second
+#  machine gets a volume of its own, so it would answer readers out of
+#  a second, older database and write entries, comments and uploads
+#  that the first machine never sees. Nothing warns you: both sites
+#  work, and each one is missing half the blog.
+#
+#  So never run any of these:
+#
+#      fly scale count 2
+#      fly machine clone
+#      fly deploy --ha    (or a deploy that creates a standby)
+#
+#  Check before and after every deploy:
+#
+#      fly status -a texttile-demo        # exactly one machine
+#
+#  A deploy replaces the one machine in place, which means a few
+#  seconds without the site. That is the price of one database, and it
+#  is the right price for a blog.
+#
+# ============================================================
+#
 # Deploys the published texttile image to Fly.io.
 # The app itself lives at github.com/texttile-blog/texttile, and that
 # repository deploys its own source to a different app, texttile-staging
@@ -31,6 +58,7 @@ primary_region = "fra"
   #     RESEND_API_KEY=... -a texttile-demo
   # Valid adapters: resend, postmark, brevo, smtp, ses. Unset = no mail.
 
+# The one volume, on the one machine. See the head of this file.
 [mounts]
   source = "data"
   destination = "/data"
@@ -40,7 +68,10 @@ primary_region = "fra"
   force_https = true
   auto_stop_machines = "stop"
   auto_start_machines = true
-  # SQLite lives on one volume: exactly one machine, no scaling out.
+  # Not a scaling knob. This machine stops when nobody is reading and
+  # starts again on the next request; it is still the only one there
+  # is. Raising it to 1 keeps that single machine awake, which is
+  # worth doing on a site people write on. It must never go above 1.
   min_machines_running = 0
 
 [[vm]]
