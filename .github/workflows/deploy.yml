@@ -3,8 +3,9 @@ name: Deploy
 on:
   workflow_dispatch:
   schedule:
-    # Daily at 06:00 UTC: redeploy to pick up the latest image.
-    - cron: "0 6 * * *"
+    # Daily at 03:17 Berlin time: avoid peak load at the top of the hour.
+    - cron: "17 3 * * *"
+      timezone: "Europe/Berlin"
   push:
     branches: [main]
 
