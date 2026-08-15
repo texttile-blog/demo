@@ -32,7 +32,7 @@
 #
 # One-time setup for a new instance:
 #   fly apps create <name> --org <org>
-#   fly volumes create data --size 3 --region <region> -a <name>
+#   fly volumes create data --size 5 --region <region> -a <name>
 #   fly secrets set SECRET_KEY_BASE=<value> -a <name>
 #   fly secrets set ADMIN_USERS="<name1>,<name2>" -a <name>
 #   fly certs add <domain> -a <name>
@@ -67,6 +67,7 @@ primary_region = "fra"
 [mounts]
   source = "data"
   destination = "/data"
+  initial_size = "5GB"
 
 [http_service]
   internal_port = 4000
