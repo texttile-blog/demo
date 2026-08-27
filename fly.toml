@@ -72,13 +72,11 @@ primary_region = "fra"
 [http_service]
   internal_port = 4000
   force_https = true
-  auto_stop_machines = "stop"
-  auto_start_machines = true
-  # Not a scaling knob. This machine stops when nobody is reading and
-  # starts again on the next request; it is still the only one there
-  # is. Raising it to 1 keeps that single machine awake, which is
-  # worth doing on a site people write on. It must never go above 1.
-  min_machines_running = 0
+  auto_stop_machines = "off"
+  auto_start_machines = false
+  # Keep the only configured machine running. The single mounted volume
+  # constrains the maximum machine count to one.
+  min_machines_running = 1
 
 [[vm]]
   cpu_kind = "shared"
