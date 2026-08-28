@@ -41,13 +41,10 @@
 app = "texttile-demo"
 primary_region = "fra"
 
-# The major tag, not latest. Every build of texttile carries its version
-# from mix.exs: the exact number and the commit stand still, while 2, 2.0
-# and latest follow the newest build that fits them. The demo takes every
-# 2.x build on its next deploy, and a breaking major stops it here until
-# somebody raises this line on purpose.
+# Follow the newest published texttile build, including new major versions.
+# Pin an exact version here when the demo must stay on one release.
 [build]
-  image = "ghcr.io/texttile-blog/texttile:2"
+  image = "ghcr.io/texttile-blog/texttile:latest"
 
 [env]
   PHX_HOST = "demo.texttile.blog"
