@@ -73,9 +73,9 @@ primary_region = "fra"
   internal_port = 4000
   force_https = true
   auto_stop_machines = "off"
-  auto_start_machines = false
-  # Keep the only configured machine running. The single mounted volume
-  # constrains the maximum machine count to one.
+  # Keep the machine running, and recover if it is ever stopped.
+  auto_start_machines = true
+  # The single mounted volume constrains the maximum machine count to one.
   min_machines_running = 1
 
 [[vm]]
