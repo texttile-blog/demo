@@ -1,7 +1,7 @@
 # demo
 
 Hosts the texttile demo instance on Fly.io from the published image
-`ghcr.io/texttile-blog/texttile:2`: app `texttile-demo` on
+`ghcr.io/texttile-blog/texttile:3`: app `texttile-demo` on
 demo.texttile.blog. The application code lives at
 [texttile-blog/texttile](https://github.com/texttile-blog/texttile), and
 that repository deploys its own source to a different app,
@@ -17,15 +17,15 @@ source; it runs what was published.
 
 ## Which version runs
 
-`fly.toml` pins the major tag, `:2`. Every build of texttile carries its
+`fly.toml` pins the major tag, `:3`. Every build of texttile carries its
 version from `mix.exs` and gets five tags: the exact version and the commit,
-which never move, and `2`, `2.0` and `latest`, which follow the newest build
+which never move, and `3`, `3.0` and `latest`, which follow the newest build
 that fits them.
 
-So the demo takes every 2.x build on its next deploy, and stops at a
+So the demo takes every 3.x build on its next deploy, and stops at a
 breaking major until somebody raises the tag here. To hold the demo on one
-build, write the exact version (`:2.0.1`); to follow repairs only, write the
-minor (`:2.0`).
+build, write the exact version (`:3.0.4`); to follow repairs only, write the
+minor (`:3.0`).
 
 The app migrates its database at boot. An update is only: pull image, restart.
 All state lives on the Fly volume (`/data`).
